@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.stacks.Stacks;
+import stacks.Stacks;
 
 import java.util.*;
 

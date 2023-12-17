@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.twoPointers.TwoPointers;
+import twoPointers.TwoPointers;
 
 public class TwoPointersTests {
     @Test

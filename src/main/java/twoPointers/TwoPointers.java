@@ -1,4 +1,4 @@
-package org.twoPointers;
+package twoPointers;
 
 public class TwoPointers {
     public static boolean isPalindrome(String s) {

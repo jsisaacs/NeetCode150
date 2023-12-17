@@ -1,4 +1,4 @@
-package org.arraysAndHashing;
+package arraysAndHashing;
 
 import java.util.*;
 
@@ -90,5 +90,55 @@ public class ArraysAndHashing {
         return topK;
     }
 
+    public static int[] productExceptSelf(int[] nums) {
+        // We want to calculate the prefix and suffix product for a given
+        // element in nums. Calculate product from 0->n-1, then calculate
+        // product from n-1->0 to maintain O(n) runtime, and apply each
+        // update to the output array to keep O(1) space.
+        int n = nums.length;
+        int[] answer = new int[n];
+        Arrays.fill(answer, 1); // base case for multiplication: 1 * x = x
+        int current = 1;
 
+        // calculate prefix product
+        for (int i = 0; i < n; i++) {
+            answer[i] *= current;
+            current *= nums[i];
+        }
+
+        current = 1;
+
+        // calculate suffix product
+        for (int i = n - 1; i >= 0; i--) {
+            answer[i] *= current;
+            current *= nums[i];
+        }
+
+        return answer;
+    }
+
+    public static int[] sumExceptSelf(int[] nums) {
+        // We want to calculate the prefix and suffix sum for a given
+        // element in nums. Calculate sum from 0->n-1, then calculate sum
+        // from n-1->0 to maintain O(n) runtime, and apply each update to
+        // the output array to keep O(1) space, not including the output.
+        int n = nums.length;
+        int[] answer = new int[n];
+        Arrays.fill(answer, 0); // addition's base case is 0 + x = x
+        int current = 0;
+
+        // calculate prefix sum
+        for (int i = 0; i < n; i++) {
+            answer[i] += current;
+            current += nums[i];
+        }
+        current = 0;
+
+        // calculate suffix sum
+        for (int i = n - 1; i >= 0; i--) {
+            answer[i] += current;
+            current += nums[i];
+        }
+        return answer;
+    }
 }

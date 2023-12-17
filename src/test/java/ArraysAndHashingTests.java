@@ -1,4 +1,4 @@
-import org.arraysAndHashing.ArraysAndHashing;
+import arraysAndHashing.ArraysAndHashing;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +20,7 @@ public class ArraysAndHashingTests {
     }
 
     @Test
-    void twoSum() {
+    void twoSumTest() {
         int[] nums = {2, 7, 11, 15};
         int target = 9;
         int[] pairs = ArraysAndHashing.twoSum(nums, target);
@@ -29,7 +29,7 @@ public class ArraysAndHashingTests {
     }
 
     @Test
-    void groupAnagrams() {
+    void groupAnagramsTest() {
         String[] strings = {"eat","tea","tan","ate","nat","bat"};
         List<List<String>> groups = ArraysAndHashing.groupAnagrams(strings);
         List<List<String>> expected = List.of(
@@ -42,11 +42,27 @@ public class ArraysAndHashingTests {
     }
 
     @Test
-    void topKFrequent() {
+    void topKFrequentTest() {
         int[] nums = {1, 1, 1, 2, 2, 3};
         int k = 2;
         int[] output = ArraysAndHashing.topKFrequent(nums, k);
         int[] expected = {2, 1};
         Assertions.assertArrayEquals(expected, output);
+    }
+
+    @Test
+    void productExceptSelfTest() {
+        int[] nums = {-1, 1, 0, -3, 3};
+        int[] answer = ArraysAndHashing.productExceptSelf(nums);
+        int[] expected = {0, 0, 9, 0, 0};
+        Assertions.assertArrayEquals(expected, answer);
+    }
+
+    @Test
+    void sumExceptSelfTest() {
+        int[] nums = {1, 6, 4, 2, 5, 3};
+        int[] answer = ArraysAndHashing.sumExceptSelf(nums);
+        int[] expected = {20, 15, 17, 19, 16, 18};
+        Assertions.assertArrayEquals(expected, answer);
     }
 }
