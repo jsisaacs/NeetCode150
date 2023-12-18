@@ -82,4 +82,14 @@ public class ArraysAndHashingTests {
         boolean answer = ArraysAndHashing.isValidSudoku(board);
         Assertions.assertTrue(answer);
     }
+
+    @Test
+    void encodeAndDecodeStringsTest() {
+        List<String> input = List.of("#list", "of2#", "2#stringss");
+        String encoding = ArraysAndHashing.encode(input);
+        List<String> decoding = ArraysAndHashing.decode(encoding);
+        String expectedEncoding = "5##list4#of2#10#2#stringss";
+        Assertions.assertEquals(expectedEncoding, encoding);
+        Assertions.assertEquals(input, decoding);
+    }
 }

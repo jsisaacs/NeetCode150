@@ -163,4 +163,29 @@ public class ArraysAndHashing {
         }
         return true;
     }
+
+    public static String encode(List<String> input) {
+        return input.stream()
+                .reduce("", (partialEncoding, element) -> {
+                    int len = element.length();
+                    return partialEncoding + len + "#" + element;
+                });
+    }
+
+    public static List<String> decode(String encodedInput) {
+        List<String> output = new LinkedList<>();
+        int start = 0;
+        for (int i = 0; i < encodedInput.length(); i++) {
+            if (encodedInput.charAt(i) == '#') {
+                String lenStr = encodedInput.substring(start, i);
+                int length = Integer.parseInt(lenStr);
+                start = i + 1;
+                String s = encodedInput.substring(start, start + length);
+                output.add(s);
+                i = start + length - 1;
+                start = i + 1;
+            }
+        }
+        return output;
+    }
 }
