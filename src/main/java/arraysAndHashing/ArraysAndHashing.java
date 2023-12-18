@@ -188,4 +188,24 @@ public class ArraysAndHashing {
         }
         return output;
     }
+
+    public static int longestConsecutive(int[] nums) {
+        Set<Integer> numSet = new HashSet<>();
+        for (int n : nums) {
+            numSet.add(n);
+        }
+        int longestSeq = 0;
+        for (int n : numSet) {
+            if (!numSet.contains(n - 1)) {
+                int currSeqSize = 1;
+                int currNum = n;
+                while (numSet.contains(currNum + 1)) {
+                    currNum++;
+                    currSeqSize++;
+                }
+                longestSeq = Math.max(longestSeq, currSeqSize);
+            }
+        }
+        return longestSeq;
+    }
 }

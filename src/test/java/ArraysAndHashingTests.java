@@ -92,4 +92,11 @@ public class ArraysAndHashingTests {
         Assertions.assertEquals(expectedEncoding, encoding);
         Assertions.assertEquals(input, decoding);
     }
+
+    @Test
+    void longestConsecutiveTest() {
+        int[] nums = {0, 3, 7, 2, 5, 8, 4, 6, 0, 1};
+        int output = ArraysAndHashing.longestConsecutive(nums);
+        Assertions.assertEquals(9, output);
+    }
 }
