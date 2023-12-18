@@ -65,4 +65,9 @@ public class ArraysAndHashingTests {
         int[] expected = {20, 15, 17, 19, 16, 18};
         Assertions.assertArrayEquals(expected, answer);
     }
+
+    @Test
+    void isValidSudokuTest() {
+
+    }
 }

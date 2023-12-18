@@ -141,4 +141,8 @@ public class ArraysAndHashing {
         }
         return answer;
     }
+
+    public static boolean isValidSudoku(char[][] board) {
+        return false;
+    }
 }

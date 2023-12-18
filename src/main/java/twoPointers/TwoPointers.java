@@ -11,11 +11,11 @@ public class TwoPointers {
             if (!Character.isAlphabetic(lC) && !Character.isDigit(lC)) {
                 l++;
                 continue;
-            };
+            }
             if (!Character.isAlphabetic(rC) && !Character.isDigit(rC)) {
                 r--;
                 continue;
-            };
+            }
             if (Character.toLowerCase(lC) == Character.toLowerCase(rC)) {
                 l++;
                 r--;
