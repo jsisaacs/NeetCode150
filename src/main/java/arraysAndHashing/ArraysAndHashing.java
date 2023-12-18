@@ -143,6 +143,24 @@ public class ArraysAndHashing {
     }
 
     public static boolean isValidSudoku(char[][] board) {
-        return false;
+        int n = board.length;
+        Set<String> seen = new HashSet<>();
+        // Board is 9x9, so runtime complexity is O(9*9) = O(81) = O(1).
+        // Inserting row, col, and box keys into the set yields a
+        // space complexity of O(81 * 3) = O(243) = O(1).
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                char cell = board[i][j];
+                if (cell != '.') {
+                    String row = cell + " in row " + i;
+                    String col = cell + " in col " + j;
+                    String box = cell + " in box [" + i / 3 + "," + j / 3 + "]";
+                    if (!seen.add(row) || !seen.add(col) || !seen.add(box)) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 }
