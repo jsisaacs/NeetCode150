@@ -82,4 +82,28 @@ public class TwoPointers {
         }
         return answer;
     }
+
+    /**
+     * 11. Container With Most Water
+     * @param height elements correspond to vertical lines
+     * @return max water
+     * @implNote time is O(n), space is O(1)
+     */
+    public static int maxArea(int[] height) {
+        int n = height.length;
+        int l = 0;
+        int r = n - 1;
+        int maxArea = Integer.MIN_VALUE;
+        while (l < r) {
+            int minH = Math.min(height[l], height[r]);
+            int w = r - l;
+            maxArea = Math.max(maxArea, minH * w);
+            if (height[l] > height[r]) {
+                r--;
+            } else {
+                l++;
+            }
+        }
+        return maxArea;
+    }
 }
