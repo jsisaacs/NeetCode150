@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import twoPointers.TwoPointers;
 
+import java.util.List;
+
 public class TwoPointersTests {
     @Test
     void isPalindromeTest() {
@@ -16,5 +18,16 @@ public class TwoPointersTests {
         int t = 542;
         int[] expected = {24, 32};
         Assertions.assertArrayEquals(expected, TwoPointers.twoSumSortedInput(nums, t));
+    }
+
+    @Test
+    void threeSumTest() {
+        int[] nums = {-1,0,1,2,-1,-4};
+        List<List<Integer>> answer = TwoPointers.threeSum(nums);
+        List<List<Integer>> expected = List.of(
+                List.of(-1, -1, 2),
+                List.of(-1, 0, 1)
+        );
+        Assertions.assertEquals(expected, answer);
     }
 }
