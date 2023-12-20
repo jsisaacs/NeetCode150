@@ -1,7 +1,6 @@
 package slidingWindow;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class SlidingWindow {
     /**
@@ -61,8 +60,25 @@ public class SlidingWindow {
      * @param k max number of char swaps
      * @return length of the longest substring containing the same
      * letter you can get via swaps
+     * @implNote time is O(n), space is O(1) since m = 26
      */
     public static int characterReplacement(String s, int k) {
-        return 0;
+        int n = s.length();
+        Map<Character, Integer> window = new HashMap<>();
+        int l = 0;
+        int longestRepeating = 0;
+        int maxFreq = 0;
+        for (int r = 0; r < n; r++) {
+            char cR = s.charAt(r);
+            window.merge(cR, 1, Integer::sum);
+            maxFreq = Math.max(maxFreq, window.get(cR));
+            while ((r - l + 1) - maxFreq > k) {
+                char cL = s.charAt(l);
+                window.compute(cL, (key, val) -> val != null ? val - 1 : null);
+                l++;
+            }
+            longestRepeating = Math.max(longestRepeating, r - l + 1);
+        }
+        return longestRepeating;
     }
 }

@@ -18,4 +18,13 @@ public class SlidingWindowTests {
         int expected = 3;
         Assertions.assertEquals(expected, len);
     }
+
+    @Test
+    void characterReplacementTest() {
+        String s = "ABAB";
+        int k = 2;
+        int output = SlidingWindow.characterReplacement(s, k);
+        int expected = 4;
+        Assertions.assertEquals(expected, output);
+    }
 }
