@@ -2,7 +2,15 @@ package arraysAndHashing;
 
 import java.util.*;
 
+
 public class ArraysAndHashing {
+    /**
+     * 217. Contains Duplicate
+     * @param nums int array
+     * @return true if any value appears at least 2x,
+     * false if all values are distinct
+     * @implNote time is O(n), space is O(n)
+     */
     public static boolean containsDuplicate(int[] nums) {
         Set<Integer> visited = new HashSet<>();
         for (Integer x : nums) {
@@ -12,6 +20,13 @@ public class ArraysAndHashing {
         return false;
     }
 
+    /**
+     * 242. Valid Anagram
+     * @param s lowercase English letters only
+     * @param t lowercase English letters only
+     * @return return true if t is an anagram of s, otherwise false
+     * @implNote time is O(n), space is O(n)
+     */
     public static boolean isAnagram(String s, String t) {
         Map<Character, Integer> sFreq = new HashMap<>();
         Map<Character, Integer> tFreq = new HashMap<>();
@@ -32,6 +47,14 @@ public class ArraysAndHashing {
         return true;
     }
 
+    /**
+     * 1. Two Sum
+     * @param nums int array
+     * @param target int
+     * @return indices of the 2 numbers (excluding itself) that add up to the target
+     *  and assumes there is one solution for the inputs
+     * @implNote time is O(n), space is O(n)
+     */
     public static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> compMap = new HashMap<>();
         int[] out = new int[2];
@@ -48,6 +71,12 @@ public class ArraysAndHashing {
         return out;
     }
 
+    /**
+     * 49. Group Anagrams
+     * @param strs string array, lowercase English letters only (m = 26)
+     * @return list of string lists that group anagrams together, unordered
+     * @implNote time is O(n), but O(m*n) if the strings are beyond lowercase English letters only, space is O(n)
+     */
     public static List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> anagrams = new HashMap<>();
         // runtime: O(n)

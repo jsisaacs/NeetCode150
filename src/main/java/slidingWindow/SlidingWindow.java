@@ -54,4 +54,15 @@ public class SlidingWindow {
         }
         return longestSubstring;
     }
+
+    /**
+     * 424. Longest Repeating Character Replacement
+     * @param s input string, only uppercase English letters
+     * @param k max number of char swaps
+     * @return length of the longest substring containing the same
+     * letter you can get via swaps
+     */
+    public static int characterReplacement(String s, int k) {
+        return 0;
+    }
 }
