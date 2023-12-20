@@ -10,4 +10,12 @@ public class SlidingWindowTests {
         int expected = 5;
         Assertions.assertEquals(expected, profit);
     }
+
+    @Test
+    void lengthOfLongestSubstringTest() {
+        String s = "pwwkew";
+        int len = SlidingWindow.lengthOfLongestSubstring(s);
+        int expected = 3;
+        Assertions.assertEquals(expected, len);
+    }
 }

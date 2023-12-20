@@ -1,5 +1,8 @@
 package slidingWindow;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class SlidingWindow {
     /**
      * 121. Best Time to Buy and Sell Stock
@@ -25,5 +28,29 @@ public class SlidingWindow {
             }
         }
         return Math.max(maxProfit, 0);
+    }
+
+    /**
+     * 3. Longest Substring Without Repeating Characters
+     * @param s input string, consists of English letters, digits, symbols, and spaces
+     * @return length of the longest substring without repeating chars
+     */
+    public static int lengthOfLongestSubstring(String s) {
+        int n = s.length();
+        if (n <= 1) return n;
+        Set<Character> substringSet = new HashSet<>();
+        int l = 0;
+        int  longestSubstring = 0;
+        for (int r = 0; r < n; r++) {
+            char cR = s.charAt(r);
+            while (substringSet.contains(cR)) {
+                char cL = s.charAt(l);
+                substringSet.remove(cL);
+                l++;
+            }
+            substringSet.add(cR);
+            longestSubstring = Math.max(longestSubstring, r - l + 1);
+        }
+        return longestSubstring;
     }
 }
