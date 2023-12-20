@@ -34,6 +34,7 @@ public class SlidingWindow {
      * 3. Longest Substring Without Repeating Characters
      * @param s input string, consists of English letters, digits, symbols, and spaces
      * @return length of the longest substring without repeating chars
+     * @implNote time is O(n), space is O(n)
      */
     public static int lengthOfLongestSubstring(String s) {
         int n = s.length();
