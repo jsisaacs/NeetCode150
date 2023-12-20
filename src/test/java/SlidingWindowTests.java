@@ -27,4 +27,17 @@ public class SlidingWindowTests {
         int expected = 4;
         Assertions.assertEquals(expected, output);
     }
+
+    @Test
+    void checkInclusionTest() {
+        String s1 = "ab";
+        String s2 = "eidbaooo";
+        boolean answer = SlidingWindow.checkInclusion(s1, s2);
+        Assertions.assertTrue(answer);
+
+        s1 = "ab";
+        s2 = "eidboaoo";
+        answer = SlidingWindow.checkInclusion(s1, s2);
+        Assertions.assertFalse(answer);
+    }
 }

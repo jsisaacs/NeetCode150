@@ -81,4 +81,32 @@ public class SlidingWindow {
         }
         return longestRepeating;
     }
+
+    /**
+     * 567. Permutation in String
+     * @param s1 consists of lowercase English letters
+     * @param s2 consists of lowercase English letters
+     * @return true if s2 contains a permutation of s1, otherwise false
+     * @implNote time is O(n), space is O(m), where m = length of s1
+     */
+    public static boolean checkInclusion(String s1, String s2) {
+        if (s1.length() > s2.length()) return false;
+        Map<Character, Integer> s1Freq = new HashMap<>();
+        Map<Character, Integer> windowFreq = new HashMap<>();
+        for (char c : s1.toCharArray()) {
+            s1Freq.merge(c, 1, Integer::sum);
+        }
+        for (int r = 0; r < s2.length(); r++) {
+            char cR = s2.charAt(r);
+            windowFreq.merge(cR, 1, Integer::sum);
+            if (r >= s1.length()) {
+                char l = s2.charAt(r - s1.length());
+                windowFreq.computeIfPresent(l, (k, v) -> v != 1 ? v - 1 : null);
+            }
+            if (windowFreq.equals(s1Freq)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
