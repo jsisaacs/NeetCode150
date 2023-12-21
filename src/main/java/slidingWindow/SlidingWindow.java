@@ -21,10 +21,8 @@ public class SlidingWindow {
             maxProfit = Math.max(maxProfit, prices[r] - prices[l]);
             if (prices[r] < prices[l]) {
                 l = r;
-                r++;
-            } else {
-                r++;
             }
+            r++;
         }
         return Math.max(maxProfit, 0);
     }
