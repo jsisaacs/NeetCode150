@@ -19,4 +19,43 @@ public class BinarySearch {
         }
         return -1;
     }
+
+    /**
+     * 74. Search a 2D Matrix
+     * @param matrix m x n int matrix; each row is sorted in non-decreasing order; 1st int of each row is greater than
+     *               the last int of the previous row
+     * @param target int
+     * @return true if target is in matrix, false otherwise
+     * @implNote time is O(log(nm)), space is O(1)
+     */
+    public static boolean searchMatrix(int[][] matrix, int target) {
+        int startRow = 0;
+        int endRow = matrix.length - 1;
+        int columns = matrix[0].length;
+        int targetRow = -1;
+        while (startRow <= endRow) {
+            int middleRow = startRow + (endRow - startRow) / 2;
+            if (matrix[middleRow][0] <= target && matrix[middleRow][columns - 1] >= target) {
+                targetRow = middleRow;
+                break;
+            }
+            else if (matrix[middleRow][0] < target) {
+                startRow = middleRow + 1;
+            }
+            else {
+                endRow = middleRow - 1;
+            }
+        }
+        if (targetRow == -1) return false;
+
+        int leftCol = 0;
+        int rightCol = matrix[targetRow].length - 1;
+        while (leftCol <= rightCol) {
+            int middleCol = leftCol + (rightCol - leftCol) / 2;
+            if (matrix[targetRow][middleCol] == target) return true;
+            else if (matrix[targetRow][middleCol] < target) leftCol = middleCol + 1;
+            else rightCol = middleCol - 1;
+        }
+        return false;
+    }
 }

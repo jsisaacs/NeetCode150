@@ -11,4 +11,17 @@ public class BinarySearchTests {
         int expected = 4;
         Assertions.assertEquals(expected, output);
     }
+
+    @Test
+    void searchMatrixTest() {
+        int[][] matrix = {
+                {1, 3, 5, 7},
+                {10, 11, 16, 20},
+                {23, 30, 34, 50}
+        };
+        int target = 11;
+        boolean output = BinarySearch.searchMatrix(matrix, target);
+        boolean expected = true;
+        Assertions.assertEquals(expected, output);
+    }
 }
