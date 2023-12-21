@@ -1,15 +1,10 @@
 package binarySearch;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 public class BinarySearch {
     /**
      * 704. Binary Search
-     * @param nums int array sorted in ascending order
+     *
+     * @param nums   int array sorted in ascending order
      * @param target int
      * @return the index of target if it exists in nums, otherwise -1
      * @implNote time is O(logn), space is O(1)
@@ -28,6 +23,7 @@ public class BinarySearch {
 
     /**
      * 74. Search a 2D Matrix
+     *
      * @param matrix m x n int matrix; each row is sorted in non-decreasing order; 1st int of each row is greater than
      *               the last int of the previous row
      * @param target int
@@ -44,11 +40,9 @@ public class BinarySearch {
             if (matrix[middleRow][0] <= target && matrix[middleRow][columns - 1] >= target) {
                 targetRow = middleRow;
                 break;
-            }
-            else if (matrix[middleRow][0] < target) {
+            } else if (matrix[middleRow][0] < target) {
                 startRow = middleRow + 1;
-            }
-            else {
+            } else {
                 endRow = middleRow - 1;
             }
         }
@@ -68,8 +62,9 @@ public class BinarySearch {
      * 875. Koko Eating Bananas
      * Calculates the minimum eating speed (bananas per hour) at which Koko
      * can eat all bananas in the piles within a given number of hours.
+     *
      * @param piles integer array representing the number of bananas per pile
-     * @param h total hours Koko needs to consume all the bananas
+     * @param h     total hours Koko needs to consume all the bananas
      * @return minimum eating speed
      * @implNote time is O(log(max(piles)) * piles.length), space is O(1)
      */
@@ -101,4 +96,6 @@ public class BinarySearch {
         }
         return duration;
     }
+
+
 }

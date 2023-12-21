@@ -6,6 +6,7 @@ import java.util.*;
 public class ArraysAndHashing {
     /**
      * 217. Contains Duplicate
+     *
      * @param nums int array
      * @return true if any value appears at least 2x,
      * false if all values are distinct
@@ -22,6 +23,7 @@ public class ArraysAndHashing {
 
     /**
      * 242. Valid Anagram
+     *
      * @param s lowercase English letters only
      * @param t lowercase English letters only
      * @return return true if t is an anagram of s, otherwise false
@@ -49,10 +51,11 @@ public class ArraysAndHashing {
 
     /**
      * 1. Two Sum
-     * @param nums int array
+     *
+     * @param nums   int array
      * @param target int
      * @return indices of the 2 numbers (excluding itself) that add up to the target
-     *  and assumes there is one solution for the inputs
+     * and assumes there is one solution for the inputs
      * @implNote time is O(n), space is O(n)
      */
     public static int[] twoSum(int[] nums, int target) {
@@ -73,6 +76,7 @@ public class ArraysAndHashing {
 
     /**
      * 49. Group Anagrams
+     *
      * @param strs string array, lowercase English letters only (m = 26)
      * @return list of string lists that group anagrams together, unordered
      * @implNote time is O(n), but O(m*n) if the strings are beyond lowercase English letters only, space is O(n)

@@ -27,7 +27,7 @@ public class BinarySearchTests {
 
     @Test
     void minEatingSpeedTest() {
-        int[] piles = {805306368,805306368,805306368};
+        int[] piles = {805306368, 805306368, 805306368};
         int h = 1000000000;
         int k = BinarySearch.minEatingSpeed(piles, h);
         int expected = 3;

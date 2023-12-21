@@ -32,8 +32,9 @@ public class TwoPointers {
 
     /**
      * Runtime: O(n), Space O(1)
+     *
      * @param nums 1-indexed sorted in non-decreasing order
-     * @param t target, there is exactly one solution
+     * @param t    target, there is exactly one solution
      * @return indices of the 2 numbers that add up to t (1-indexed)
      */
     public static int[] twoSumSortedInput(int[] nums, int t) {
@@ -85,6 +86,7 @@ public class TwoPointers {
 
     /**
      * 11. Container With Most Water
+     *
      * @param height elements correspond to vertical lines
      * @return max water
      * @implNote time is O(n), space is O(1)

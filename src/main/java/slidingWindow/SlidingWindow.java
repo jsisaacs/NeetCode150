@@ -1,10 +1,14 @@
 package slidingWindow;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class SlidingWindow {
     /**
      * 121. Best Time to Buy and Sell Stock
+     *
      * @param prices stock value, where prices[i] is the price on the ith day
      * @return max profit across 2 distinct days, or if no profit 0
      * @implNote time is O(n), space is O(1)
@@ -29,6 +33,7 @@ public class SlidingWindow {
 
     /**
      * 3. Longest Substring Without Repeating Characters
+     *
      * @param s input string, consists of English letters, digits, symbols, and spaces
      * @return length of the longest substring without repeating chars
      * @implNote time is O(n), space is O(n)
@@ -38,7 +43,7 @@ public class SlidingWindow {
         if (n <= 1) return n;
         Set<Character> substringSet = new HashSet<>();
         int l = 0;
-        int  longestSubstring = 0;
+        int longestSubstring = 0;
         for (int r = 0; r < n; r++) {
             char cR = s.charAt(r);
             while (substringSet.contains(cR)) {
@@ -54,6 +59,7 @@ public class SlidingWindow {
 
     /**
      * 424. Longest Repeating Character Replacement
+     *
      * @param s input string, only uppercase English letters
      * @param k max number of char swaps
      * @return length of the longest substring containing the same
@@ -82,6 +88,7 @@ public class SlidingWindow {
 
     /**
      * 567. Permutation in String
+     *
      * @param s1 consists of lowercase English letters
      * @param s2 consists of lowercase English letters
      * @return true if s2 contains a permutation of s1, otherwise false

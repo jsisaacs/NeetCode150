@@ -2,7 +2,7 @@ import arraysAndHashing.ArraysAndHashing;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.*;
+import java.util.List;
 
 public class ArraysAndHashingTests {
     @Test
@@ -30,7 +30,7 @@ public class ArraysAndHashingTests {
 
     @Test
     void groupAnagramsTest() {
-        String[] strings = {"eat","tea","tan","ate","nat","bat"};
+        String[] strings = {"eat", "tea", "tan", "ate", "nat", "bat"};
         List<List<String>> groups = ArraysAndHashing.groupAnagrams(strings);
         List<List<String>> expected = List.of(
                 List.of("eat", "tea", "ate"),
@@ -69,15 +69,15 @@ public class ArraysAndHashingTests {
     @Test
     void isValidSudokuTest() {
         char[][] board = {
-                {'5','3','.','.','7','.','.','.','.'},
-                {'6','.','.','1','9','5','.','.','.'},
-                {'.','9','8','.','.','.','.','6','.'},
-                {'8','.','.','.','6','.','.','.','3'},
-                {'4','.','.','8','.','3','.','.','1'},
-                {'7','.','.','.','2','.','.','.','6'},
-                {'.','6','.','.','.','.','2','8','.'},
-                {'.','.','.','4','1','9','.','.','5'},
-                {'.','.','.','.','8','.','.','7','9'}
+                {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+                {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
         };
         boolean answer = ArraysAndHashing.isValidSudoku(board);
         Assertions.assertTrue(answer);
