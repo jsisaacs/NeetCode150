@@ -60,7 +60,7 @@ public class BinarySearch {
 
     /**
      * 875. Koko Eating Bananas
-     * Calculates the minimum eating speed (bananas per hour) at which Koko
+     * - Calculates the minimum eating speed (bananas per hour) at which Koko
      * can eat all bananas in the piles within a given number of hours.
      *
      * @param piles integer array representing the number of bananas per pile
@@ -97,5 +97,25 @@ public class BinarySearch {
         return duration;
     }
 
-
+    /**
+     * 153. Find Minimum in Rotated Sorted Array
+     *
+     * @param nums sorted int array that was rotated between 1->n times,
+     *             unique values
+     * @return minimum element of the array
+     * @implNote time is O(logn), space is O(1)
+     */
+    public static int findMin(int[] nums) {
+        int l = 0;
+        int r = nums.length - 1;
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            if (nums[m] > nums[r]) {
+                l = m + 1;
+            } else {
+                r = m;
+            }
+        }
+        return nums[l];
+    }
 }

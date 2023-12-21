@@ -33,4 +33,12 @@ public class BinarySearchTests {
         int expected = 3;
         Assertions.assertEquals(expected, k);
     }
+
+    @Test
+    void findMinTest() {
+        int[] nums = {5, 1, 2, 3, 4};
+        int output = BinarySearch.findMin(nums);
+        int expected = 1;
+        Assertions.assertEquals(expected, output);
+    }
 }
