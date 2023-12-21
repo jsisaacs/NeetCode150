@@ -24,4 +24,13 @@ public class BinarySearchTests {
         boolean expected = true;
         Assertions.assertEquals(expected, output);
     }
+
+    @Test
+    void minEatingSpeedTest() {
+        int[] piles = {805306368,805306368,805306368};
+        int h = 1000000000;
+        int k = BinarySearch.minEatingSpeed(piles, h);
+        int expected = 3;
+        Assertions.assertEquals(expected, k);
+    }
 }

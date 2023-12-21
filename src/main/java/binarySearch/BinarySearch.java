@@ -1,5 +1,11 @@
 package binarySearch;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class BinarySearch {
     /**
      * 704. Binary Search
@@ -56,5 +62,43 @@ public class BinarySearch {
             else rightCol = middleCol - 1;
         }
         return false;
+    }
+
+    /**
+     * 875. Koko Eating Bananas
+     * Calculates the minimum eating speed (bananas per hour) at which Koko
+     * can eat all bananas in the piles within a given number of hours.
+     * @param piles integer array representing the number of bananas per pile
+     * @param h total hours Koko needs to consume all the bananas
+     * @return minimum eating speed
+     * @implNote time is O(log(max(piles)) * piles.length), space is O(1)
+     */
+    public static int minEatingSpeed(int[] piles, int h) {
+        int largestPile = Integer.MIN_VALUE;
+        for (int p : piles) {
+            largestPile = Math.max(largestPile, p);
+        }
+        int l = 1;
+        int r = largestPile;
+        int smallestK = Integer.MAX_VALUE;
+        while (l <= r) {
+            int k = l + (r - l) / 2;
+            long eatingTimeForK = getEatingTime(piles, k);
+            if (eatingTimeForK <= h) {
+                smallestK = Math.min(smallestK, k);
+                r = k - 1;
+            } else {
+                l = k + 1;
+            }
+        }
+        return smallestK;
+    }
+
+    private static long getEatingTime(int[] piles, int k) {
+        long duration = 0;
+        for (int p : piles) {
+            duration += (long) Math.ceil((double) p / k);
+        }
+        return duration;
     }
 }
