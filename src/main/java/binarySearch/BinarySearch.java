@@ -47,7 +47,6 @@ public class BinarySearch {
             }
         }
         if (targetRow == -1) return false;
-
         int leftCol = 0;
         int rightCol = matrix[targetRow].length - 1;
         while (leftCol <= rightCol) {
