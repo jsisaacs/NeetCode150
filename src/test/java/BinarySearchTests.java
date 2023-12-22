@@ -41,4 +41,30 @@ public class BinarySearchTests {
         int expected = 1;
         Assertions.assertEquals(expected, output);
     }
+
+    @Test
+    void searchRotatedTest() {
+        int[] nums = {4, 5, 6, 7, 0, 1, 2};
+        int target = 0;
+        int output = BinarySearch.searchRotated(nums, target);
+        int expected = 4;
+        Assertions.assertEquals(expected, output);
+
+        int[] nums2 = {4, 5, 6, 7, 0, 1, 2};
+        target = 3;
+        output = BinarySearch.searchRotated(nums2, target);
+        expected = -1;
+        Assertions.assertEquals(expected, output);
+
+        int[] nums3 = {1};
+        target = 0;
+        output = BinarySearch.searchRotated(nums3, target);
+        Assertions.assertEquals(expected, output);
+
+        int[] nums4 = {1, 3};
+        target = 3;
+        output = BinarySearch.searchRotated(nums4, target);
+        expected = 1;
+        Assertions.assertEquals(expected, output);
+    }
 }

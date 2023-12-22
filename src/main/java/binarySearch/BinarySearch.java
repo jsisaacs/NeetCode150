@@ -118,4 +118,35 @@ public class BinarySearch {
         }
         return nums[l];
     }
+
+    /**
+     * 33. Search in Rotated Sorted Array
+     *
+     * @param nums   int array of unique and sorted (ascending) values; possibly rotated
+     * @param target int
+     * @return index of target if it's in nums, -1 if it's not
+     * @implNote time is O(logn), space is O(1)
+     */
+    public static int searchRotated(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length - 1;
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+            if (nums[m] == target) return m;
+            if (nums[l] <= nums[m]) {
+                if (target > nums[m] || target < nums[l]) {
+                    l = m + 1;
+                } else {
+                    r = m - 1;
+                }
+            } else {
+                if (target < nums[m] || target > nums[r]) {
+                    r = m - 1;
+                } else {
+                    l = m + 1;
+                }
+            }
+        }
+        return -1;
+    }
 }
