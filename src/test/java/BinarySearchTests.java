@@ -67,4 +67,16 @@ public class BinarySearchTests {
         expected = 1;
         Assertions.assertEquals(expected, output);
     }
+
+    @Test
+    void timeMapTest() {
+        BinarySearch.TimeMap timeMap = new BinarySearch.TimeMap();
+        timeMap.set("foo", "bar", 1);  // store the key "foo" and value "bar" along with timestamp = 1.
+        Assertions.assertEquals("bar", timeMap.get("foo", 1));
+        Assertions.assertEquals("bar", timeMap.get("foo", 3));
+
+        timeMap.set("foo", "bar2", 4); // store the key "foo" and value "bar2" along with timestamp = 4.
+        Assertions.assertEquals("bar2", timeMap.get("foo", 4));
+        Assertions.assertEquals("bar2", timeMap.get("foo", 5));
+    }
 }

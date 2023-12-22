@@ -1,5 +1,10 @@
 package binarySearch;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class BinarySearch {
     /**
      * 704. Binary Search
@@ -148,5 +153,74 @@ public class BinarySearch {
             }
         }
         return -1;
+    }
+
+    /**
+     * 981. Time Based Key-Value Store
+     * <p>
+     * A time-based key-value data structure that can store multiple values for the same key
+     * at different time stamps and retrieve the key's value at a certain timestamp.
+     * <li>all timestamps are strictly increasing</li>
+     * <li>key and value consist of lowercase English letters and digits</li>
+     */
+    public static class TimeMap {
+        private final Map<String, List<ValueEntry>> map;
+
+        public TimeMap() {
+            this.map = new HashMap<>();
+        }
+
+        /**
+         * @param key       String
+         * @param value     String
+         * @param timestamp integer
+         * @implNote time is O(1), space is O(m) where m = values
+         */
+        public void set(String key, String value, int timestamp) {
+            this.map.computeIfAbsent(key, k -> new ArrayList<>()).add(new ValueEntry(value, timestamp));
+        }
+
+        /**
+         * @param key       String
+         * @param timestamp integer
+         * @return if there are multiple values for a key, return the largest value
+         * such that timestamp_prev <= timestamp, otherwise if no values exist return ""
+         * @implNote time is O(logn), space is O(1)
+         */
+        public String get(String key, int timestamp) {
+            List<ValueEntry> entries = this.map.get(key);
+            if (entries == null || entries.isEmpty()) return "";
+            int l = 0;
+            int r = entries.size() - 1;
+            while (l <= r) {
+                int m = l + (r - l) / 2;
+                ValueEntry e = entries.get(m);
+                if (e.time == timestamp) {
+                    return e.value;
+                } else if (e.time > timestamp) {
+                    l = m + 1;
+                } else {
+                    r = m - 1;
+                }
+            }
+            for (int i = entries.size() - 1; i >= 0; i--) {
+                if (entries.get(i).time <= timestamp) {
+                    return entries.get(i).value;
+                }
+            }
+            return "";
+        }
+
+        @Override
+        public String toString() {
+            return this.map.toString();
+        }
+
+        private record ValueEntry(String value, int time) {
+            @Override
+            public String toString() {
+                return "ValueEntry{value=" + this.value + ",time=" + this.time + "}";
+            }
+        }
     }
 }
