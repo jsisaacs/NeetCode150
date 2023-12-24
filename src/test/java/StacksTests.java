@@ -9,4 +9,15 @@ public class StacksTests {
         boolean validString = Stacks.isValid(s);
         Assertions.assertTrue(validString);
     }
+
+    @Test
+    void minStackTest() {
+        Stacks.MinStack minStack = new Stacks.MinStack();
+        minStack.push(0);
+        minStack.push(1);
+        minStack.push(0);
+        Assertions.assertEquals(0, minStack.getMin());
+        minStack.pop();
+        Assertions.assertEquals(0, minStack.getMin());
+    }
 }
