@@ -1,5 +1,7 @@
 package stacks;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
 
 public class Stacks {
@@ -21,6 +23,30 @@ public class Stacks {
             }
         }
         return validClosingChars.isEmpty();
+    }
+
+    /**
+     * 150. Evaluate Reverse Polish Notation
+     *
+     * @param tokens String array of integers and tokens; input is assumed valid
+     * @return value of the expression
+     * @implNote time is O(n), space is O(n)
+     */
+    public static int evalRPN(String[] tokens) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (String t : tokens) {
+            switch (t) {
+                case "+" -> stack.push(stack.pop() + stack.pop());
+                case "-" -> stack.push(-stack.pop() + stack.pop());
+                case "*" -> stack.push(stack.pop() * stack.pop());
+                case "/" -> {
+                    int b = stack.pop(), a = stack.pop();
+                    stack.push(a / b);
+                }
+                default -> stack.push(Integer.parseInt(t));
+            }
+        }
+        return stack.peek();
     }
 
     /**

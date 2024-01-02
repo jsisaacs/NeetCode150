@@ -20,4 +20,12 @@ public class StacksTests {
         minStack.pop();
         Assertions.assertEquals(0, minStack.getMin());
     }
+
+    @Test
+    void rpnTest() {
+        String[] in = {"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"};
+        int expected = 22;
+        int out = Stacks.evalRPN(in);
+        Assertions.assertEquals(expected, out);
+    }
 }
